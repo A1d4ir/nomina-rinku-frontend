@@ -21,11 +21,18 @@ const RegistrarEmpleado = () => {
         }
 
         try {
-            const { data } = await ClienteAxios.post('/empleado', {nombre, rol});
+            const formBody = {
+                "nombre": nombre,
+                "rol": parseInt(rol)
+            }
+
+            const { data } = await ClienteAxios.post('/empleado', formBody);
             setAlerta({
                 msg: "Empleado Creado correctamente",
                 error: false
             });
+            setNombre("");
+            setRol(1);
         } catch (error) {
             setAlerta({
                 msg: error.response.data.msg,
@@ -75,7 +82,7 @@ const RegistrarEmpleado = () => {
                     id="rol"
                     className="w-full mt-3 p-3 border rounded-lg bg-gray-50"
                     value={rol}
-                    onChange={ e => setRol(e.value)}
+                    onChange={ e => setRol(e.target.value)}
                 >
                     <option value={1} defaultValue>Chofer</option>
                     <option value={2}>Cargador</option>
