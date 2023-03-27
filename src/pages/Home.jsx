@@ -46,6 +46,25 @@ const Home = () => {
                 >
                     Registrar Sueldo
                 </Link>
+                <Link
+                    to="/lista-empleados"
+                    className="
+                        text-center
+                        bg-sky-700 
+                        mb-5
+                        p-5
+                        w-full py-3 
+                        text-white 
+                        uppercase 
+                        font-bold 
+                        rounded 
+                        hover:cursor-pointer 
+                        hover:bg-sky-800 
+                        transition-colors
+                        mt-5"
+                >
+                    Lista de Empleados
+                </Link>
             </nav>
         </div>
     </>

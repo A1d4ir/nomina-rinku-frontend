@@ -1,10 +1,11 @@
 import { useState } from "react"
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Alerta from "../components/Alerta";
 import ClienteAxios from "../config/ClienteAxios";
 
 const RegistrarSueldo = () => {
-    const [numeroEmpleado, setNumeroEmpleado] = useState(0);
+    const { empleadoId } = useParams();
+    const [numeroEmpleado, setNumeroEmpleado] = useState(empleadoId != undefined ? empleadoId : 0);
     const [mes, setMes] = useState(1);
     const [entregas, setEntregas] = useState(0);
     const [alerta, setAlerta] = useState({});
@@ -121,6 +122,27 @@ const RegistrarSueldo = () => {
                 className="bg-sky-700 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-sky-800 transition-colors"
             />
           </form>
+
+          { empleadoId != undefined && (
+            <Link
+                to="/lista-empleados"
+                className="
+                    bg-lime-700 
+                    mb-5 
+                    w-full py-3 
+                    text-white 
+                    uppercase 
+                    font-bold 
+                    rounded 
+                    hover:cursor-pointer 
+                    hover:bg-lime-800 
+                    transition-colors
+                    mt-5
+                    text-center"
+            >
+                Volver
+            </Link>
+          ) }        
 
           <Link
             to="/"
