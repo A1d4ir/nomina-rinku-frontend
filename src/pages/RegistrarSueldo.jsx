@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Alerta from "../components/Alerta";
 import ClienteAxios from "../config/ClienteAxios";
 
@@ -9,6 +9,8 @@ const RegistrarSueldo = () => {
     const [mes, setMes] = useState(1);
     const [entregas, setEntregas] = useState(0);
     const [alerta, setAlerta] = useState({});
+
+    const navigate = useNavigate();
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -32,6 +34,7 @@ const RegistrarSueldo = () => {
                 msg: "Empleado Creado correctamente",
                 error: false
             });
+            if(empleadoId != undefined) navigate("/lista-empleados");
             setNumeroEmpleado(0);
             setMes(1);
             setEntregas(0);

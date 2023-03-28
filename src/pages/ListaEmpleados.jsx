@@ -93,6 +93,27 @@ const ListaEmpleados = () => {
                     >
                         Registrar Sueldo
                     </Link>
+
+                    <Link
+                        className="
+                            w-2/12
+                            bg-indigo-700
+                            mx-3
+                            py-3
+                            text-white 
+                            uppercase 
+                            font-bold 
+                            rounded 
+                            hover:cursor-pointer 
+                            hover:bg-indigo-800 
+                            transition-colors
+                            mt-5
+                            text-center
+                        "
+                        to={`/sueldos-empleado/${empleado.id}`}
+                    >
+                        Detalle de sueldo
+                    </Link>
                 </div>
             ))}
         </div>
